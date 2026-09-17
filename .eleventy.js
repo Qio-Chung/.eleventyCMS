@@ -1,11 +1,9 @@
+const { DateTime } = require("luxon");
+
 module.exports = function (eleventyConfig) {
     // Add a filter to format dates
-    eleventyConfig.addFilter("dateFormat", function (date) {
-        return new Date(date).toLocaleDateString("en-AU", {
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-        });
+    eleventyConfig.addFilter("postDate", function (dateObj) {
+        return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLL dd yyyy");
     });
 
     // Add a shortcode for the current year
