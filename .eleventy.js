@@ -21,6 +21,7 @@ module.exports = function (eleventyConfig) {
 
     // Passthrough copy for static assets
     eleventyConfig.addPassthroughCopy("./src/assets");
+    eleventyConfig.addPassthroughCopy("./src/admin");
 
     // Return the configuration object
     return {
